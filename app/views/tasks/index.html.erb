@@ -1,0 +1,17 @@
+<h1>My Tasks</h1>
+<% @tasks.each do |task| %>
+<div class="title">
+<!--   <h2><%= task.title %></h2> -->
+  <%= form_for(task) do |f| %>
+  <%= f.check_box :completed, {}, true, false %>
+  <%= link_to task.title, task_path(task) %>
+  <% end %>
+</div>
+<% end %>
+<br>
+<br>
+<div>
+  <%= link_to task_new_path do %>
+    <i class="fas fa-plus"></i> Create new task
+  <% end %>
+</div>
